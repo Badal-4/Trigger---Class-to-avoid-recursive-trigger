@@ -1,0 +1,4 @@
+public class checkRecursive {
+     public static map<String, Set<Id>> recordIdMap = new map<String, Set<Id>>(); //Recommended
+     public static boolean runOnce = true; //Not recommended
+}
