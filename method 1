@@ -1,0 +1,16 @@
+public class AccountTriggerHelper {
+
+    //on before update
+    public static void beforeUpdate(map<ID, Account> newMap, map<ID, Account> oldMap) {
+        List<Account> accList = new List<Account>();
+        if(!checkRecursive.recordIdMap.containsKey('beforeupdate'))
+            checkRecursive.recordIdMap.put('beforeupdate', new Set<ID>());
+        for (Account acc: newMap.values()) {
+            if(!checkRecursive.recordIdMap.get('beforeupdate').contains(acc.Id)){
+                accList.add(acc);
+                checkRecursive.recordIdMap.get('beforeupdate').add(acc.Id);
+            }
+        }
+        System.debug('=== Trigger run === '+accList.size()+' === Total Processed Records === '+checkRecursive.recordIdMap.get('beforeupdate').size());
+    }
+}
